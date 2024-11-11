@@ -1,1 +1,22 @@
+1.Consider a company with a monolithic architecture that handles a large product base. As the company expands, the monolithic architecture is becoming problematic. How should the company transition from a monolithic to a microservices architecture, and how can Kubernetes be integrated?
 
+Microservices are distributed and loosely coupled applications. The company should start by breaking down the monolithic application into microservices. This approach enables the team to make changes without breaking the entire application, which is especially beneficial when deploying on Kubernetes or another orchestration platform. They should begin by migrating one or two microservices and carefully monitor for any issues or breaking changes. If everything works smoothly, they can gradually migrate the entire application to Kubernetes. Kubernetes offers an effective solution for managing and scaling microservices.
+
+2. Kubernetes Architecture
+Kubernetes architecture consists of two main components: the Master Node and Worker Nodes.
+
+Master Node has four primary components:
+
+Kube Controller Manager: Manages multiple processes running on the master node, consolidates their operations, and informs the master node about their status, effectively managing all processes within the cluster.
+
+Kube API Server: Acts as the frontend for the master node, exposing all Kubernetes APIs to the master node components. It is responsible for communication between the master and worker nodes.
+
+Kube Scheduler: Assigns workloads to worker nodes based on resource availability and other constraints.
+
+etcd: A key-value store written in Go, used to store cluster data, such as configuration and state information. It can securely store key-value pairs like usernames and passwords needed within Kubernetes.
+
+Worker Node has two main components:
+
+Kubelet: Ensures that containers are running within their assigned pods.
+
+Kube Proxy: Manages networking and load balancing for pods, handling inter-pod communication and traffic routing within the cluster.
